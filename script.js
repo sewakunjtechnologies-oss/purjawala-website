@@ -22,8 +22,8 @@ function download(c){
 
 document.getElementById('cats').innerHTML=CATS.map((c,i)=>`
  <div class="cat">
-  <div class="cover"><span class="dt">D.T.</span><span class="ct">${c.t}</span><span class="cy">${c.s}</span></div>
-  <div class="cat-body"><p>${c.m}</p>
+  <button class="cover" type="button" data-v="${i}" aria-label="View ${c.t} catalog"><img src="catalogs/covers/${c.id}.png" alt="${c.t} catalog first page" loading="lazy"></button>
+  <div class="cat-body"><h3>${c.t}</h3><p>${c.s}</p><p>${c.m}</p>
    <div class="cat-acts">
     <button class="mini mini-v" data-v="${i}">View</button>
     <button class="mini mini-d" data-d="${i}">Download</button>
@@ -271,3 +271,33 @@ document.getElementById('showcase').innerHTML=SHOW.map(([k,n,m])=>`
   }
   requestAnimationFrame(loop);
 })();
+
+/* Inquiry delivery through the Vercel server function. */
+const inquiryForm = document.getElementById('inquiry-form');
+inquiryForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  if (!inquiryForm.reportValidity()) return;
+  const button = inquiryForm.querySelector('[type="submit"]');
+  const status = document.getElementById('inquiry-status');
+  button.disabled = true;
+  button.textContent = 'Sending…';
+  status.textContent = 'Sending your inquiry…';
+  try {
+    const response = await fetch(inquiryForm.action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(new FormData(inquiryForm))),
+    });
+    const result = await response.json();
+    if (!response.ok || result.ok !== true) throw new Error(result.error || 'Unable to send your inquiry.');
+    status.textContent = 'Thank you! Your inquiry has been sent. We will get back to you soon.';
+    inquiryForm.reset();
+  } catch (error) {
+    status.textContent = error instanceof SyntaxError || error instanceof TypeError
+      ? 'Unable to send right now. Please try again or email purjawala@gmail.com.'
+      : error.message;
+  } finally {
+    button.disabled = false;
+    button.textContent = 'Send inquiry';
+  }
+});

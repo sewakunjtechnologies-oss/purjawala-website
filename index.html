@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Purjawala — Textile Machinery Spare Parts | D.T. Manufactures &amp; Traders</title>
+<title>Purjawala — Textile Machinery Spare Parts | D.T. Manufacture &amp; Traders</title>
 <meta name="description" content="Manufacturers, importers and traders of weaving and shuttleless loom spare parts. Shuttle loom, jacquard, dobby and feeder components for Vamatex, Somet, Sulzer TP600, Dornier, Panther and Vendeville. Panipat, Haryana, India. Since 1949.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 
 <header>
   <div class="wrap bar">
-    <a class="lockup" href="#top"><b>Purjawala</b><span>D.T. Manufactures &amp; Traders (Batra Machine)</span></a>
+    <a class="lockup" href="#top"><b>Purjawala</b><span>D.T. Manufacture &amp; Traders (Batra Machine)</span></a>
     <nav>
       <a href="#about">About</a><a href="#what">What we do</a><a href="#machines">Machines</a>
       <a href="#catalogs">Catalogs</a><a href="#custom">Custom parts</a><a href="#contact">Contact</a>
@@ -60,10 +60,10 @@
   <div class="about">
     <div>
       <p class="lede">The family's work in engineering and textile machinery goes back to
-        <strong>1949</strong>, when our sister concern <strong>M/S Tera Chand Batra &amp; Son's</strong>
+        <strong>1949</strong>, when our sister concern <strong>M/S Tara Chand Batra &amp; Son's</strong>
         was established. What began as engineering work in Panipat has stayed in the family,
         and stayed in the same trade, ever since.</p>
-      <p class="lede"><strong>D.T. Manufactures &amp; Traders</strong> was established in
+      <p class="lede"><strong>D.T. Manufacture &amp; Traders</strong> was established in
         <strong>2001</strong> as a dedicated firm for textile machinery spare parts. Across
         Panipat the business is still known by the name it grew up with —
         <strong>Batra Machine</strong> — and it is still the number a weaving shed calls when
@@ -81,7 +81,7 @@
       <div class="tl"><b>1949</b><strong>M/S Tera Chand Batra &amp; Son's</strong>
         <p>Our sister concern, associated with the business since 1949 — where the family's
            engineering work began.</p></div>
-      <div class="tl"><b>2001</b><strong>D.T. Manufactures &amp; Traders</strong>
+      <div class="tl"><b>2001</b><strong>D.T. Manufacture &amp; Traders</strong>
         <p>Established as a dedicated firm for textile machinery spare parts and engineering
            works. A unit of Batra Machine.</p></div>
       <div class="tl"><b>Today</b><strong>Purjawala</strong>
@@ -183,20 +183,22 @@
     <h2 class="display">Let's discuss<br>your requirement</h2>
   </div>
   <div class="contact">
-    <div class="form">
-      <label for="n">Name</label><input id="n" placeholder="Your name">
+    <form class="form" id="inquiry-form" action="/api/inquiry" method="post">
+      <label for="n">Name</label><input id="n" name="name" autocomplete="name" required maxlength="120" placeholder="Your name">
       <div class="row">
-        <div><label for="c">Company</label><input id="c" placeholder="Company name"></div>
-        <div><label for="p">Phone</label><input id="p" placeholder="Phone number"></div>
+        <div><label for="c">Company</label><input id="c" name="company" autocomplete="organization" maxlength="160" placeholder="Company name"></div>
+        <div><label for="p">Phone</label><input id="p" name="phone" type="tel" autocomplete="tel" required maxlength="40" placeholder="Phone number"></div>
       </div>
       <div class="row">
-        <div><label for="e">Email</label><input id="e" placeholder="you@company.com"></div>
-        <div><label for="mc">Machine</label><input id="mc" placeholder="e.g. Vamatex Leonardo"></div>
+        <div><label for="e">Email</label><input id="e" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@company.com"></div>
+        <div><label for="mc">Machine</label><input id="mc" name="machine" maxlength="160" placeholder="e.g. Vamatex Leonardo"></div>
       </div>
       <label for="m">What do you need?</label>
-      <textarea id="m" placeholder="Describe the part, or attach a photograph or drawing."></textarea>
-      <button class="btn btn-ink btn-lg" type="button">Send inquiry</button>
-    </div>
+      <textarea id="m" name="message" required maxlength="5000" placeholder="Describe the part and your requirement."></textarea>
+      <div class="form-trap" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+      <button class="btn btn-ink btn-lg" type="submit">Send inquiry</button>
+      <p id="inquiry-status" class="form-status" role="status" aria-live="polite"></p>
+    </form>
     <div class="cinfo">
       <p class="lede">Tell us the machine and what stopped working. A photograph of the part
         is usually enough. We'll come back with availability and price.</p>
@@ -237,7 +239,7 @@
   <div class="fgrid">
     <div class="fid">
       <b>Purjawala</b>
-      <span class="firm">D.T. Manufactures &amp; Traders (Batra Machine)</span>
+      <span class="firm">D.T. Manufacture &amp; Traders (Batra Machine)</span>
       <span class="vtex">V-Tex India</span>
       <div class="sub"><em>Since 2001</em><br>
         <em>Sister concern: M/S Tera Chand Batra &amp; Son's · Since 1949</em></div>
@@ -263,9 +265,9 @@
       Vamatex, Somet, Sulzer, Dornier, Panther, Vendeville, Bonas, Stäubli, Van de Wiele, LGL,
       IRO and all other machine and brand names are trademarks of their respective owners. They
       are used here only to indicate the machines our components are made for. Purjawala and
-      D.T. Manufactures &amp; Traders are not affiliated with, authorised by or endorsed by any
+      D.T. Manufacture &amp; Traders are not affiliated with, authorised by or endorsed by any
       of these manufacturers.</p>
-    <p class="legal-r">© 2026 D.T. Manufactures &amp; Traders, Panipat.<br>
+    <p class="legal-r">© 2026 D.T. Manufacture &amp; Traders, Panipat.<br>
       <span class="crafted">Crafted by <b>SewaKunj Technologies LLP</b></span></p>
   </div>
 </div></footer>
